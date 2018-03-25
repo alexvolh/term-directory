@@ -1,0 +1,119 @@
+:root {
+    --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: calc(var(--jumbotron-padding-y) * 2);
+        padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+}
+
+/*.jumbotron p:last-child {
+  margin-bottom: 0;
+}*/
+
+.jumbotron-heading {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.has-error{
+    font-weight: bolder;
+    color:red;
+}
+
+.term-title {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #721c24;
+}
+
+.term-transcription {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: darkslateblue;
+}
+
+.term-second-title {
+    font-style: italic;
+}
+
+.term-another-lang {
+    font-style: italic;
+    font-weight: bolder;
+    color: #953b39;
+}
+
+.newterm-labels {
+    font-size: 1.2em;
+    padding-left: 40px;
+}
+
+.term-title-info {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.7em;
+    color: brown;
+}
+
+.term-title2-info {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+.term-transcription-info {
+    font-size: 2em;
+    color: darkslateblue;
+}
+
+.term-ru-ukr-info {
+    font-size: 1.5em;
+    color: saddlebrown;
+}
+
+.term-list-info {
+    font-style: italic;
+    font-size: 1.3em;
+}
+
+.term-list-info ul {
+    list-style-type: circle;
+}
+
+.term-description-info{
+    font-size: 1.3em;
+    text-align: justify;
+}
+
+.newone {
+    display:none;
+}
+
+
+
+
+
+

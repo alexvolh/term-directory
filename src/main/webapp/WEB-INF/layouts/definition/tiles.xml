@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!-- Main layout -->
+<tiles-definitions>
+	<definition name="mainLayout" template="/WEB-INF/layouts/template/mainLayout.jsp">
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<definition name="terms" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/terms.jsp" />
+	</definition>
+	<definition name="term" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/term.jsp" />
+	</definition>
+	<definition name="addTerm" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/addTerm.jsp" />
+	</definition>
+	<definition name="termsAdminList" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/termsAdminList.jsp" />
+	</definition>
+</tiles-definitions>
