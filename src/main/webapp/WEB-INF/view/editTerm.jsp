@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-7 text-center">
                 <button type="submit" class="btn btn-primary" style="font-size: 1.2em; width: 20%; height: 120%">
-                    <i class="far fa-save"></i> <span class="ml-2">Update</span>
+                    <i class="far fa-edit"></i> <span class="ml-2">Update</span>
                 </button>
             </div>
         </div>
