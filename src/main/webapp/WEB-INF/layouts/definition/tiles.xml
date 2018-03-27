@@ -16,6 +16,9 @@
 	<definition name="addTerm" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/view/addTerm.jsp" />
 	</definition>
+	<definition name="editTerm" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/editTerm.jsp" />
+	</definition>
 	<definition name="termsAdminList" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/view/termsAdminList.jsp" />
 	</definition>

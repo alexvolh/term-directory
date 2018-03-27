@@ -9,6 +9,8 @@ public interface TermService {
 
     void addTerm(Term term);
 
+    void updateTerm(Term term);
+
     void deleteTerm(long id);
 
     Collection<Term> getAllTerms();

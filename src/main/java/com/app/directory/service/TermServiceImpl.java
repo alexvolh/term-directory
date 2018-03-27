@@ -24,6 +24,11 @@ public class TermServiceImpl implements TermService {
     }
 
     @Override
+    public void updateTerm(Term term) {
+        termDAO.updateTerm(term);
+    }
+
+    @Override
     public void deleteTerm(long id) {
         termDAO.deleteTerm(id);
     }

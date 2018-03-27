@@ -94,7 +94,17 @@ public class TermController {
     public String editTerm(@PathVariable("id") long id, ModelMap modelMap) {
         Term term = termService.getTermById(id);
         modelMap.addAttribute("term", term);
-        return "addTerm";
+        return "editTerm";
+    }
+
+    @PostMapping("edit-term-{id}")
+    public String updateTerm(@PathVariable("id") long id) {
+        Term updatedTerm = termService.getTermById(id);
+        if (updatedTerm != null) {
+            termService.updateTerm(updatedTerm);
+        }
+
+        return "redirect: /terms/all";
     }
 
     @GetMapping("delete-term-{id}")

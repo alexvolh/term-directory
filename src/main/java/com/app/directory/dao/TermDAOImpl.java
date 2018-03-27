@@ -26,7 +26,7 @@ public class TermDAOImpl implements TermDAO {
 
     @Override
     public void updateTerm(Term term) {
-
+        entityManager.refresh(term);
     }
 
     @Override
