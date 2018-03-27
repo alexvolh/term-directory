@@ -50,6 +50,7 @@ public class TermController {
     public String getTermAdminList(ModelMap modelMap) {
         List<Term> terms = new ArrayList<>(termService.getAllTerms());
         modelMap.addAttribute("terms", terms);
+
         return "termsAdminList";
     }
 
@@ -57,6 +58,7 @@ public class TermController {
     public String getTerm(@PathVariable("id") Long id, ModelMap modelMap) {
         Term term = termService.getTermById(id);
         modelMap.addAttribute("term", term);
+
         return "term";
     }
 
@@ -94,15 +96,18 @@ public class TermController {
     public String editTerm(@PathVariable("id") long id, ModelMap modelMap) {
         Term term = termService.getTermById(id);
         modelMap.addAttribute("term", term);
+
         return "editTerm";
     }
 
     @PostMapping("edit-term-{id}")
-    public String updateTerm(@PathVariable("id") long id) {
-        Term updatedTerm = termService.getTermById(id);
-        if (updatedTerm != null) {
-            termService.updateTerm(updatedTerm);
+    public String updateTerm(@Valid @ModelAttribute("term") Term term, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "editTerm";
         }
+
+        System.out.println("link" + term.getImageLink());
+        termService.updateTerm(term);
 
         return "redirect: /terms/all";
     }
@@ -110,6 +115,7 @@ public class TermController {
     @GetMapping("delete-term-{id}")
     public String removeTerm(@PathVariable("id") long id) {
         termService.deleteTerm(id);
+
         return "redirect: /terms/admin-list";
     }
 }

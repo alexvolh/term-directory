@@ -26,7 +26,16 @@ public class TermDAOImpl implements TermDAO {
 
     @Override
     public void updateTerm(Term term) {
-        entityManager.refresh(term);
+        Term updTerm = getTermById(term.getId());
+        updTerm.setEnglish(term.getEnglish());
+        updTerm.setRussian(term.getRussian());
+        updTerm.setUkraine(term.getUkraine());
+        updTerm.setTranscription(term.getTranscription());
+        updTerm.setAdded(term.getAdded());
+        updTerm.setImageLink(term.getImageLink());
+        updTerm.setSubjects(term.getSubjects());
+        updTerm.setDescription(term.getDescription());
+        entityManager.flush();
     }
 
     @Override
