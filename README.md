@@ -1,2 +1,1 @@
-# term-directory
-Term direcotry project
+term-directory project
