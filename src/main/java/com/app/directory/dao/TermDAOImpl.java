@@ -32,7 +32,6 @@ public class TermDAOImpl implements TermDAO {
         updTerm.setUkraine(term.getUkraine());
         updTerm.setTranscription(term.getTranscription());
         updTerm.setAdded(term.getAdded());
-        updTerm.setImageLink(term.getImageLink());
         updTerm.setSubjects(term.getSubjects());
         updTerm.setDescription(term.getDescription());
         entityManager.flush();

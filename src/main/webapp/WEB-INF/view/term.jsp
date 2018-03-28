@@ -2,8 +2,9 @@
 <div class="container ml-5 mt-5">
     <div class="row">
         <div class="col-sm-auto" style="width: 250px; height: 350px">
-            <img src="<c:url value="${pageContext.request.contextPath}/terms-pic/${term.imageLink}"></c:url>"
-                 alt="image" style="width: 100%"/>
+                <img id="" class="img-thumbnail" src="<c:url value="${pageContext.request.contextPath}/terms-pic/${term.english}.jpg"></c:url>"
+                     onerror="this.onerror=null;this.src='\\terms-pic\\img_not_found.jpg';"
+                     alt="image not found" style="width: 100%"/>
         </div>
         <div class="col-lg-auto">
             <div class="col-lg-auto term-title-info">

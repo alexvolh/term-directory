@@ -72,8 +72,8 @@
     $("#term-file").fileinput({
         'theme': 'fa',
         initialPreviewAsData: true,
-        maxFileSize: 5120,
-        'allowedFileExtensions': ['jpg', 'jpe', 'png', 'pns']
+        maxFileSize: 5124,
+        'allowedFileExtensions': ['jpg']
     });
 </script>
 <script>

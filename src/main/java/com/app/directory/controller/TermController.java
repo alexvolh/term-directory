@@ -4,28 +4,25 @@ import com.app.directory.model.Subject;
 import com.app.directory.model.Term;
 import com.app.directory.service.SubjectService;
 import com.app.directory.service.TermService;
-import com.app.directory.service.TermServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 
 @RequestMapping("terms")
 @SessionAttributes("subjects")
 public class TermController {
+    private final int maxFileSize = 1000000;
 
     @Autowired
     private TermService termService;
@@ -71,22 +68,20 @@ public class TermController {
     }
 
     @PostMapping("add")
-    public String persistNewTerm(@Valid Term term, BindingResult result, @RequestParam("termPic") MultipartFile termPic, HttpServletRequest httpServletRequest) {
+    public String persistNewTerm(@Valid Term term, BindingResult result, HttpServletRequest httpServletRequest) {
         if (result.hasErrors()) {
             return "addTerm";
         }
-        term.setAdded(new Date());
 
-        try {
-            String rootDirectory = httpServletRequest.getSession().getServletContext().getRealPath("/");
-            byte[] termPicBytes = termPic.getBytes();
-            Path termsPicPath = Paths.get(rootDirectory + "terms-pic\\" + termPic.getOriginalFilename());
-            Files.write(termsPicPath, termPicBytes);
-            term.setImageLink(termPic.getOriginalFilename());
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(term.getMultipartFile().getSize() > maxFileSize) {
+            FieldError loadFileError = new FieldError("term", "multipartFile", "Error load file. Max size of image 1 Mb");
+            result.addError(loadFileError);
+            return "addTerm";
         }
 
+        term.setAdded(new Date());
+
+        termService.loadImage(term.getMultipartFile(), term.getEnglish(), httpServletRequest.getSession().getServletContext().getRealPath("/"), true);
         termService.addTerm(term);
 
         return "redirect: /terms/all";
@@ -106,7 +101,6 @@ public class TermController {
             return "editTerm";
         }
 
-        System.out.println("link" + term.getImageLink());
         termService.updateTerm(term);
 
         return "redirect: /terms/all";

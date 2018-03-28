@@ -1,7 +1,11 @@
 package com.app.directory.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.*;
 
@@ -24,9 +28,6 @@ public class Term implements Serializable {
     @Column(name = "ukraine")
     private String ukraine;
 
-    @Column(name = "img_link")
-    private String imageLink;
-
     @NotEmpty(message = "Transcription need to be enter")
     @Column(name = "transcription")
     private String transcription;
@@ -37,6 +38,10 @@ public class Term implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+    @JsonIgnore
+    @Transient
+    private MultipartFile multipartFile;
 
     @NotEmpty(message = "Choose one subject at least")
     @ManyToMany(fetch = FetchType.EAGER)
@@ -77,14 +82,6 @@ public class Term implements Serializable {
         this.ukraine = ukraine;
     }
 
-    public String getImageLink() {
-        return imageLink;
-    }
-
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
-    }
-
     public String getTranscription() {
         return transcription;
     }
@@ -107,6 +104,15 @@ public class Term implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @XmlTransient
+    public MultipartFile getMultipartFile() {
+        return multipartFile;
+    }
+
+    public void setMultipartFile(MultipartFile multipartFile) {
+        this.multipartFile = multipartFile;
     }
 
     public List<Subject> getSubjects() {
