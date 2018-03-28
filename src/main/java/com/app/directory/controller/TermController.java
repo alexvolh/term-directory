@@ -22,7 +22,9 @@ import java.util.List;
 @RequestMapping("terms")
 @SessionAttributes("subjects")
 public class TermController {
-    private final int maxFileSize = 1000000;
+    private final int MAX_FILE_SIZE = 1000000;
+
+    private  final String UPLOADED_FOLDER = "D://terms_images//";
 
     @Autowired
     private TermService termService;
@@ -73,18 +75,23 @@ public class TermController {
             return "addTerm";
         }
 
-        if(term.getMultipartFile().getSize() > maxFileSize) {
+        if (termService.isTermExists(term.getEnglish())) {
+            FieldError loadFileError = new FieldError("term", "english", "That term is already exists");
+            result.addError(loadFileError);
+            return "addTerm";
+        }
+
+        if(term.getMultipartFile().getSize() > MAX_FILE_SIZE) {
             FieldError loadFileError = new FieldError("term", "multipartFile", "Error load file. Max size of image 1 Mb");
             result.addError(loadFileError);
             return "addTerm";
         }
 
-        term.setAdded(new Date());
+        if (term.getMultipartFile() != null && !term.getMultipartFile().isEmpty()) {
+            termService.loadImage(term.getMultipartFile(), term.getEnglish(), UPLOADED_FOLDER);
+        }
 
-        termService.loadImage(term.getMultipartFile(),
-                                term.getEnglish(),
-                                httpServletRequest.getSession().getServletContext().getRealPath("/"),
-                                true);
+        term.setAdded(new Date());
         termService.addTerm(term);
 
         return "redirect: /terms/all";
@@ -99,9 +106,30 @@ public class TermController {
     }
 
     @PostMapping("edit-term-{id}")
-    public String updateTerm(@Valid @ModelAttribute("term") Term term, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+    public String updateTerm(@PathVariable("id") long id, @Valid @ModelAttribute("term") Term term, BindingResult result, HttpServletRequest httpServletRequest) {
+        if (result.hasErrors()) {
             return "editTerm";
+        }
+
+        if(term.getMultipartFile().getSize() > MAX_FILE_SIZE) {
+            FieldError loadFileError = new FieldError("term", "multipartFile", "Error load file. Max size of image 1 Mb");
+            result.addError(loadFileError);
+            return "addTerm";
+        }
+
+        String oldEnglish = termService.getTermById(id).getEnglish();
+
+        if (!oldEnglish.equals(term.getEnglish()) && term.getMultipartFile().isEmpty()) {
+            termService.renameImage( UPLOADED_FOLDER+oldEnglish+ ".jpg", UPLOADED_FOLDER+term.getEnglish() + ".jpg");
+        }
+
+        if (!oldEnglish.equals(term.getEnglish()) && !term.getMultipartFile().isEmpty()) {
+            termService.loadImage(term.getMultipartFile(), term.getEnglish(), UPLOADED_FOLDER);
+            termService.removeFile(UPLOADED_FOLDER+oldEnglish+ ".jpg");
+        }
+
+        if (oldEnglish.equals(term.getEnglish()) && !term.getMultipartFile().isEmpty()) {
+            termService.loadImage(term.getMultipartFile(), term.getEnglish(), UPLOADED_FOLDER);
         }
 
         termService.updateTerm(term);

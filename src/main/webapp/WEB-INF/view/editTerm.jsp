@@ -63,7 +63,7 @@
                 </form:select>
             </div>
             <div class="has-error">
-                <form:errors path="subjects" class="help-inline"/>
+                <form:errors path="subjects" class="help-inline p-3"/>
             </div>
         </div>
         <div class="row mt-5">
@@ -73,8 +73,11 @@
             <div class="col-md-7">
                 <div class="form-group">
                     <div class="file-loading">
-                        <input id="term-file" class="file" type="file" name="termPic">
+                        <form:input id="term-file" class="file" accept=".jpg" type="file" name="termPic" path="multipartFile"/>
                     </div>
+                </div>
+                <div class="has-error">
+                    <form:errors path="multipartFile" class="help-inline"/>
                 </div>
             </div>
         </div>

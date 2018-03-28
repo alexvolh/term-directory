@@ -43,6 +43,15 @@ public class TermDAOImpl implements TermDAO {
         entityManager.remove(getTermById(id));
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean isTermExists(String eng) {
+        String hql = "FROM Term as terms WHERE terms.english = :english";
+        int count = entityManager.createQuery(hql).setParameter("english", eng).getResultList().size();
+
+        return count > 0 ? true : false;
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public Collection<Term> getAllTerms() {

@@ -14,7 +14,13 @@ public interface TermService {
 
     void deleteTerm(long id);
 
+    boolean isTermExists(String eng);
+
     Collection<Term> getAllTerms();
 
-    public void loadImage(MultipartFile multipartFile, String fileName, String path, boolean isNewLoad);
+    void loadImage(MultipartFile multipartFile, String fileName, String path);
+
+    void renameImage(String oldName, String newName);
+
+    void removeFile(String fileName);
 }

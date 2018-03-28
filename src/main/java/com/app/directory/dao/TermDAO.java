@@ -14,5 +14,7 @@ public interface TermDAO {
 
     void deleteTerm(long id);
 
+    boolean isTermExists (String eng);
+
     Collection<Term> getAllTerms();
 }
