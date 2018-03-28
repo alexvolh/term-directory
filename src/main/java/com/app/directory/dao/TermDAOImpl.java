@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
+import java.util.Date;
 
 @Transactional
 @Repository
@@ -31,7 +32,7 @@ public class TermDAOImpl implements TermDAO {
         updTerm.setRussian(term.getRussian());
         updTerm.setUkraine(term.getUkraine());
         updTerm.setTranscription(term.getTranscription());
-        updTerm.setAdded(term.getAdded());
+        updTerm.setAdded(new Date());
         updTerm.setSubjects(term.getSubjects());
         updTerm.setDescription(term.getDescription());
         entityManager.flush();

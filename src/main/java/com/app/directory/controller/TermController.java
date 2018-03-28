@@ -81,7 +81,10 @@ public class TermController {
 
         term.setAdded(new Date());
 
-        termService.loadImage(term.getMultipartFile(), term.getEnglish(), httpServletRequest.getSession().getServletContext().getRealPath("/"), true);
+        termService.loadImage(term.getMultipartFile(),
+                                term.getEnglish(),
+                                httpServletRequest.getSession().getServletContext().getRealPath("/"),
+                                true);
         termService.addTerm(term);
 
         return "redirect: /terms/all";
