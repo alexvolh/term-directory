@@ -81,6 +81,8 @@ public class TermController {
             return "addTerm";
         }
 
+        termService.createFolderIfNotExists(UPLOADED_FOLDER);
+
         if(term.getMultipartFile().getSize() > MAX_FILE_SIZE) {
             FieldError loadFileError = new FieldError("term", "multipartFile", "Error load file. Max size of image 1 Mb");
             result.addError(loadFileError);

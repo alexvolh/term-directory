@@ -23,4 +23,6 @@ public interface TermService {
     void renameImage(String oldName, String newName);
 
     void removeFile(String fileName);
+
+    void createFolderIfNotExists(String path);
 }

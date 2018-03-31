@@ -74,4 +74,13 @@ public class TermServiceImpl implements TermService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void createFolderIfNotExists(String path) {
+        File directory = new File(path);
+
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+    }
 }
