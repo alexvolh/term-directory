@@ -30,9 +30,9 @@
                 <i class="fas fa-plus-circle"></i> Add Term</a>
             <a href="<c:url value='/terms/admin-list' />" class="btn btn-outline-success custom-width">
                 <i class="fas fa-list-ol"></i> Terms List</a>
-            <a href="<c:url value='#' />" class="btn btn-outline-success custom-width">
+            <a href="<c:url value='/subjects/add' />" class="btn btn-outline-success custom-width">
                 <i class="fas fa-plus-circle"></i> Add Subject</a>
-            <a href="<c:url value='#' />" class="btn btn-outline-success custom-width">
+            <a href="<c:url value='/subjects/all' />" class="btn btn-outline-success custom-width">
                 <i class="fas fa-list-ol"></i> Subjects List</a>
         </div>
     </div>
@@ -55,6 +55,12 @@
 <script src="<c:url value="/resources/js/theme-fa.js"/>"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
 
+<script>
+    $('#my_modal').on('show.bs.modal', function(e) {
+        var subjectId = $(e.relatedTarget).data('subject-id');
+        $(e.currentTarget).find('input[name="subjectId"]').val(subjectId);
+    });
+</script>
 <script>
     $(document).ready(function(){
         $('#myTable').dataTable({

@@ -22,4 +22,10 @@
 	<definition name="termsAdminList" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/view/termsAdminList.jsp" />
 	</definition>
+	<definition name="addSubject" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/addSubject.jsp" />
+	</definition>
+	<definition name="subjectsAdminList" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/subjectsAdminList.jsp" />
+	</definition>
 </tiles-definitions>

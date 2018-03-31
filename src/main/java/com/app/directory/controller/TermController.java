@@ -70,7 +70,7 @@ public class TermController {
     }
 
     @PostMapping("add")
-    public String persistNewTerm(@Valid Term term, BindingResult result, HttpServletRequest httpServletRequest) {
+    public String persistNewTerm(@Valid Term term, BindingResult result) {
         if (result.hasErrors()) {
             return "addTerm";
         }

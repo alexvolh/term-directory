@@ -2,7 +2,9 @@ package com.app.directory.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,6 +22,9 @@ public class Subject implements Serializable {
 
     @Column(name = "ukraine")
     private String ukraine;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "subjects")
+    private List<Term> terms = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -51,5 +56,13 @@ public class Subject implements Serializable {
 
     public void setUkraine(String ukraine) {
         this.ukraine = ukraine;
+    }
+
+    public List<Term> getTerms() {
+        return terms;
+    }
+
+    public void setTerms(List<Term> terms) {
+        this.terms = terms;
     }
 }

@@ -21,17 +21,21 @@ public class SubjectDAOImpl implements SubjectDAO {
 
     @Override
     public void addSubject(Subject subject) {
-
+        entityManager.persist(subject);
     }
 
     @Override
     public void updateSubject(Subject subject) {
-
+        Subject updSubject = getSubjectById(subject.getId());
+        updSubject.setEnglish(subject.getEnglish());
+        updSubject.setRussian(subject.getRussian());
+        updSubject.setUkraine(subject.getUkraine());
+        entityManager.flush();
     }
 
     @Override
     public void deleteSubject(long id) {
-
+        entityManager.remove(getSubjectById(id));
     }
 
     @SuppressWarnings("unchecked")

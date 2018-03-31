@@ -31,7 +31,7 @@
         <div class="col-lg-auto pt-3 term-list-info">
             <ul>
                 <c:forEach items="${term.subjects}" var="subject">
-                    <li> ${subject.english}</li>
+                    <li> ${subject.english} (${subject.russian}, ${subject.ukraine})</li>
                 </c:forEach>
             </ul>
         </div>
