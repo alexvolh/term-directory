@@ -4,8 +4,8 @@
         <thead>
         <tr>
             <th>en subject</th>
+            <th>ua subject</th>
             <th>ru subject</th>
-            <th>ukr subject</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -31,7 +31,7 @@
                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                                             class="sr-only">Close</span></button>
                                 </div>
-                                <form action="/subjects/delete-subject" method="post">
+                                <form action="${pageContext.request.contextPath}/subjects/delete-subject" method="post">
                                     <div class="modal-body">
                                         <input type="hidden" name="subjectId" value="${subject.id}"/>
                                         <div class="alert alert-danger">
