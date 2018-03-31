@@ -28,4 +28,7 @@
 	<definition name="subjectsAdminList" extends="mainLayout">
 		<put-attribute name="content" value="/WEB-INF/view/subjectsAdminList.jsp" />
 	</definition>
+	<definition name="editSubject" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/view/editSubject.jsp" />
+	</definition>
 </tiles-definitions>

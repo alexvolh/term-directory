@@ -53,6 +53,24 @@ public class SubjectController {
         return "redirect: /subjects/all";
     }
 
+    @GetMapping("edit-subject-{id}")
+    public String editSubject(@PathVariable("id") long id, ModelMap modelMap) {
+        Subject subject = subjectService.getSubjectById(id);
+        modelMap.addAttribute("subject", subject);
+
+        return "editSubject";
+    }
+
+    @PostMapping("edit-subject-{id}")
+    public String updateSubject(@Valid @ModelAttribute Subject subject, BindingResult result) {
+        if (result.hasErrors()) {
+            return "editSubject";
+        }
+        subjectService.updateSubject(subject);
+
+        return "redirect: /subjects/all";
+    }
+
     @PostMapping("delete-subject")
     public String removeSubject(@RequestParam String subjectId, HttpServletRequest servletRequest) {
         subjectService.deleteSubject(Long.valueOf(subjectId));

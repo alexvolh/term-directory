@@ -17,7 +17,7 @@
                 <td>${subject.ukraine}</td>
                 <td>${subject.russian}</td>
                 <td>
-                    <a href="<c:url value='/terms/edit-term-${term.id}' />" class="btn btn-warning custom-width">
+                    <a href="<c:url value='/subjects/edit-subject-${subject.id}' />" class="btn btn-warning custom-width">
                         <i class="fas fa-edit"></i> Edit</a>
                 </td>
                 <td>
