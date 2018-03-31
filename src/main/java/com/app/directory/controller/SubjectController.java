@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,13 @@ public class SubjectController {
 
     @PostMapping("add")
     public String persistNewSubject(@Valid Subject subject, BindingResult result, HttpServletRequest servletRequest) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
+            return "addSubject";
+        }
+
+        if (subjectService.isSubjectExists(subject.getEnglish())) {
+            FieldError loadFileError = new FieldError("subject", "english", "That subject is already exists");
+            result.addError(loadFileError);
             return "addSubject";
         }
         subjectService.addSubject(subject);

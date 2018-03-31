@@ -15,7 +15,6 @@
             <tr>
                 <td>${subject.english}</td>
                 <td>${subject.ukraine}</td>
-
                 <td>${subject.russian}</td>
                 <td>
                     <a href="<c:url value='/terms/edit-term-${term.id}' />" class="btn btn-warning custom-width">

@@ -34,6 +34,11 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
+    public boolean isSubjectExists(String eng) {
+        return subjectDAO.isSubjectExists(eng);
+    }
+
+    @Override
     public List<Subject> getAllSubjects() {
         return (List<Subject>) subjectDAO.getAllSubjects();
     }

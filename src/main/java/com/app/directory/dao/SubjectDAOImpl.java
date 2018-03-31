@@ -40,6 +40,15 @@ public class SubjectDAOImpl implements SubjectDAO {
 
     @SuppressWarnings("unchecked")
     @Override
+    public boolean isSubjectExists(String eng) {
+        String hql = "FROM Subject as subjects WHERE subjects.english = :english";
+        int count = entityManager.createQuery(hql).setParameter("english", eng).getResultList().size();
+
+        return count > 0 ? true : false;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public Collection<Subject> getAllSubjects() {
         String hql = "FROM Subject as subject ORDER BY subject.english";
         return (Collection<Subject>) entityManager.createQuery(hql).getResultList();

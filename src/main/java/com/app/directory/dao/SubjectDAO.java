@@ -14,5 +14,7 @@ public interface SubjectDAO {
 
     void deleteSubject(long id);
 
+    boolean isSubjectExists(String eng);
+
     Collection<Subject> getAllSubjects();
 }

@@ -13,5 +13,7 @@ public interface SubjectService {
 
     void deleteSubject(long id);
 
+    boolean isSubjectExists(String eng);
+
     List<Subject> getAllSubjects();
 }
