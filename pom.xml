@@ -36,12 +36,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search-engine</artifactId>
-            <version>5.6.1.Final</version>
+            <version>5.9.1.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search-orm</artifactId>
-            <version>5.6.1.Final</version>
+            <version>5.9.1.Final</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

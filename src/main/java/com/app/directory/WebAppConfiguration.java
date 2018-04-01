@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class WebAppConf implements WebMvcConfigurer {
+public class WebAppConfiguration implements WebMvcConfigurer {
     String externalFilePath = "file:///D:/terms_images/";
 
     @Override
