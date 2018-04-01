@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -14,7 +15,14 @@
             <button class="btn btn-outline-success ml-2" type="submit">Search</button>
         </div>
     </form>
+    <br/>
+    <form action="${pageContext.request.contextPath}/terms/filter-by-subject" method="get">
+        <form:select cssClass="selectpicker" path="subjects" name="subject" onchange="this.form.submit();">
+            <form:options items="${subjects}" itemValue="id" itemLabel="english" multiple="true"/>
+        </form:select>
+    </form>
 </section>
+
 
 <div class="album py-2 bg-light">
     <div class="container">

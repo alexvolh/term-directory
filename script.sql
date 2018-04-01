@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `termsdirecorydb`.`TERM` (
   `english` VARCHAR(45) NULL,
   `russian` VARCHAR(45) NULL,
   `ukraine` VARCHAR(45) NULL,
-  `img_link` VARCHAR(135) NULL,
   `transcription` VARCHAR(45) NULL,
   `date_time_added` TIMESTAMP NULL,
   `description` LONGTEXT NULL,

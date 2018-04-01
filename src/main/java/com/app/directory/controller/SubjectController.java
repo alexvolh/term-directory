@@ -62,11 +62,12 @@ public class SubjectController {
     }
 
     @PostMapping("edit-subject-{id}")
-    public String updateSubject(@Valid @ModelAttribute Subject subject, BindingResult result) {
+    public String updateSubject(@Valid @ModelAttribute Subject subject, BindingResult result, HttpServletRequest servletRequest) {
         if (result.hasErrors()) {
             return "editSubject";
         }
         subjectService.updateSubject(subject);
+        servletRequest.getSession().setAttribute("subjects", subjectService.getAllSubjects());
 
         return "redirect: /subjects/all";
     }

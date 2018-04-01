@@ -145,4 +145,12 @@ public class TermController {
 
         return "redirect: /terms/admin-list";
     }
+
+    @GetMapping("filter-by-subject")
+    public String getTermsBySubject(@RequestParam String subject, ModelMap modelMap) {
+        Subject findSubject = subjectService.getSubjectById(Long.valueOf(subject));
+        modelMap.addAttribute("terms", findSubject.getTerms());
+
+        return "terms";
+    }
 }

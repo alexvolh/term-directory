@@ -44,7 +44,7 @@ public class Term implements Serializable {
     private MultipartFile multipartFile;
 
     @NotEmpty(message = "Choose one subject at least")
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "SUBJECT_TERM",
             joinColumns = {@JoinColumn(name = "term_id")},
             inverseJoinColumns = {@JoinColumn(name = "subject_id")})

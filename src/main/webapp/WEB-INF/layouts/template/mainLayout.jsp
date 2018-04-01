@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jkeyboard.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fileinput.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/theme-fa.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lightgallery.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
 
 </head>
@@ -48,11 +50,13 @@
     <tiles:insertAttribute name="content" />
 </main>
 <script src="<c:url value="/resources/js/jquery-3.3.1.min.js"/>"> </script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<%--<script src="<c:url value="/resources/js/bootstrap.min.js"/>"> </script>--%>
 <script defer src="<c:url value="/resources/js/fontawesome-all.js"/>"></script>
 <script src="<c:url value="/resources/js/jkeyboard.js"/>"></script>
 <script src="<c:url value="/resources/js/fileinput.js"/>"></script>
 <script src="<c:url value="/resources/js/theme-fa.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap-select.js"/>"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
 
 <script>
@@ -61,6 +65,7 @@
         $(e.currentTarget).find('input[name="subjectId"]').val(subjectId);
     });
 </script>
+
 <script>
     $(document).ready(function(){
         $('#myTable').dataTable({
@@ -68,12 +73,14 @@
         });
     });
 </script>
+
 <script>
     $('#keyboard').jkeyboard({
         layout: "transcription",
         input: $('#transcription')
     });
 </script>
+
 <script>
     $("#term-file").fileinput({
         'theme': 'fa',
@@ -82,6 +89,7 @@
         'allowedFileExtensions': ['jpg']
     });
 </script>
+
 <script>
     var input = document.getElementById('transcription');
     var message = document.getElementsByClassName('newone')[0];
@@ -89,5 +97,27 @@
         message.style.display = 'block';
     });
 </script>
+
+<script>
+    $('.selectpicker').selectpicker({
+        style: 'btn btn-outline-success',
+        title: 'Select subject for filtering',
+        liveSearch: true,
+        size: 5
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#lightgallery').lightGallery({
+            share: false,
+            mode: 'lg-fade',
+            cssEasing : 'cubic-bezier(0.25, 0, 0.25, 1)'
+        });
+    });
+</script>
+<script src="<c:url value="/resources/js/picturefill.min.js"/>"></script>
+<script src="<c:url value="/resources/js/lightgallery-all.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.mousewheel.min.js"/>"></script>
 </body>
 </html>
