@@ -4,8 +4,8 @@
         <thead>
             <tr>
                 <th>en term</th>
+                <th>ua term</th>
                 <th>ru term</th>
-                <th>ukr term</th>
                 <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -15,8 +15,8 @@
             <c:forEach items="${terms}" var="term">
                 <tr>
                     <td>${term.english}</td>
-                    <td>${term.russian}</td>
                     <td>${term.ukraine}</td>
+                    <td>${term.russian}</td>
                     <td>
                         <a href="<c:url value='/terms/term-${term.id}' />" class="btn btn-info custom-width">
                             <i class="fas fa-eye"></i>  View</a>

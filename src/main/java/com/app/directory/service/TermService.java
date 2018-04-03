@@ -25,4 +25,6 @@ public interface TermService {
     void removeFile(String fileName);
 
     void createFolderIfNotExists(String path);
+
+    Collection<Term> searchTerms(String searchKeywords);
 }

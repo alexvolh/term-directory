@@ -9,9 +9,9 @@
         <h1 class="jumbotron-heading">Term Directory</h1>
         <p class="lead text-muted">Enter keywords to finding your word ...</p>
     </div>
-    <form class="col-lg-8 offset-lg-2 mt-5">
+    <form class="col-lg-8 offset-lg-2 mt-5" action="${pageContext.request.contextPath}/terms/search" method="get">
         <div class="row justify-content-center">
-            <input type="text" class="form-control" style="width: 90%">
+            <input type="text" class="form-control" name="searchKeywords" style="width: 90%">
             <button class="btn btn-outline-success ml-2" type="submit">Search</button>
         </div>
     </form>

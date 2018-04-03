@@ -153,4 +153,11 @@ public class TermController {
 
         return "terms";
     }
+
+    @GetMapping("search")
+    public String searchTerms(@RequestParam String searchKeywords, ModelMap modelMap) {
+        List<Term> terms = new ArrayList<>(termService.searchTerms(searchKeywords));
+        modelMap.addAttribute("terms", terms);
+        return "terms";
+    }
 }

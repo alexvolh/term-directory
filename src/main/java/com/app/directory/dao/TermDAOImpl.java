@@ -49,13 +49,13 @@ public class TermDAOImpl implements TermDAO {
         String hql = "FROM Term as terms WHERE terms.english = :english";
         int count = entityManager.createQuery(hql).setParameter("english", eng).getResultList().size();
 
-        return count > 0 ? true : false;
+        return count > 0;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public Collection<Term> getAllTerms() {
-        String hql = "FROM Term as terms ORDER BY terms.added";
+        String hql = "FROM Term as terms ORDER BY terms.added DESC";
         return (Collection<Term>) entityManager.createQuery(hql).getResultList();
     }
 }
