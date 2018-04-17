@@ -6,7 +6,7 @@
                 <a href="<c:url value="/terms_images/${term.english}.jpg"></c:url>" data-sub-html="${term.english}.jpg">
                     <img class="img-thumbnail"
                          src="<c:url value="/terms_images/${term.english}.jpg"></c:url>"
-                         onerror="this.onerror=null;this.src='\\terms-pic\\img_not_found.jpg';"
+                         onerror="this.onerror=null;this.src='${pageContext.request.contextPath}\\terms-pic\\img_not_found.jpg';"
                          alt="image not found" style="width: 100%"/>
                 </a>
             </div>

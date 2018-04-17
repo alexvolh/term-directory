@@ -96,7 +96,7 @@ public class TermController {
         term.setAdded(new Date());
         termService.addTerm(term);
 
-        return "redirect: /terms/all";
+        return "redirect: /term-directory/terms/all";
     }
 
     @GetMapping("edit-term-{id}")
@@ -136,14 +136,14 @@ public class TermController {
 
         termService.updateTerm(term);
 
-        return "redirect: /terms/all";
+        return "redirect: /term-directory/terms/all";
     }
 
     @GetMapping("delete-term-{id}")
     public String removeTerm(@PathVariable("id") long id) {
         termService.deleteTerm(id);
 
-        return "redirect: /terms/admin-list";
+        return "redirect: /term-directory/terms/admin-list";
     }
 
     @GetMapping("filter-by-subject")

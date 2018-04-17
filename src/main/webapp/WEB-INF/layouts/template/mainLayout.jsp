@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/theme-fa.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lightgallery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/datatables.min.css">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark" style="padding-right: 2em">
@@ -39,10 +38,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="float-right">
+<%--        <div class="float-right">
             <a href="<c:url value='#' />" class="btn btn-outline-success custom-width">
                 <i class="fas fa-user-circle"></i> Login</a>
-        </div>
+        </div>--%>
     </div>
 </nav>
 
@@ -50,15 +49,13 @@
     <tiles:insertAttribute name="content" />
 </main>
 <script src="<c:url value="/resources/js/jquery-3.3.1.min.js"/>"> </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-<%--<script src="<c:url value="/resources/js/bootstrap.min.js"/>"> </script>--%>
+<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"> </script>
 <script defer src="<c:url value="/resources/js/fontawesome-all.js"/>"></script>
 <script src="<c:url value="/resources/js/jkeyboard.js"/>"></script>
 <script src="<c:url value="/resources/js/fileinput.js"/>"></script>
 <script src="<c:url value="/resources/js/theme-fa.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap-select.js"/>"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
-
+<script src="<c:url value="/resources/js/datatables.min.js"/>"></script>
 <script>
     $('#my_modal').on('show.bs.modal', function(e) {
         var subjectId = $(e.relatedTarget).data('subject-id');

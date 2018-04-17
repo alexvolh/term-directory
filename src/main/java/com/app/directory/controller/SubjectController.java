@@ -50,7 +50,7 @@ public class SubjectController {
         subjectService.addSubject(subject);
         servletRequest.getSession().setAttribute("subjects", subjectService.getAllSubjects());
 
-        return "redirect: /subjects/all";
+        return "redirect: /term-directory/subjects/all";
     }
 
     @GetMapping("edit-subject-{id}")
@@ -69,7 +69,7 @@ public class SubjectController {
         subjectService.updateSubject(subject);
         servletRequest.getSession().setAttribute("subjects", subjectService.getAllSubjects());
 
-        return "redirect: /subjects/all";
+        return "redirect: /term-directory/subjects/all";
     }
 
     @PostMapping("delete-subject")
@@ -77,6 +77,6 @@ public class SubjectController {
         subjectService.deleteSubject(Long.valueOf(subjectId));
         servletRequest.getSession().setAttribute("subjects", subjectService.getAllSubjects());
 
-        return "redirect: /subjects/all";
+        return "redirect: /term-directory/subjects/all";
     }
 }
