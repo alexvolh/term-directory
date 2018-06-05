@@ -38,7 +38,6 @@
         </div>
     </div>
 </nav>
-
 <main role="main" class="mb-lg-5">
     <tiles:insertAttribute name="content" />
 </main>
