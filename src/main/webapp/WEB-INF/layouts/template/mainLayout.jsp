@@ -37,12 +37,6 @@
                 <i class="fas fa-list-ol"></i> Subjects List</a>
         </div>
     </div>
-    <div class="row">
-<%--        <div class="float-right">
-            <a href="<c:url value='#' />" class="btn btn-outline-success custom-width">
-                <i class="fas fa-user-circle"></i> Login</a>
-        </div>--%>
-    </div>
 </nav>
 
 <main role="main" class="mb-lg-5">
